@@ -1,0 +1,2 @@
+#!/usr/bin/env bash -e
+docker-compose up -d --no-recreate $@
