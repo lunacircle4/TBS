@@ -1,2 +1,0 @@
-#!/usr/bin/env bash -e
-docker exec -it tbs-web /bin/bash -c                       apt-get update apt-get install -y default-libmysqlclient-dev gcc pip3 install django mysqlclient  $@
