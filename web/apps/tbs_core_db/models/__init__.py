@@ -1,1 +1,2 @@
-from . import user
+from .user import User
+from .video import Video

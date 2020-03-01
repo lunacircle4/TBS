@@ -1,4 +1,3 @@
-
 create database tbs_development;
 FLUSH PRIVILEGES;
 update mysql.user set host = '%' where User='root';
