@@ -1,3 +1,5 @@
 __pycache__/
 web/static
+tbs_db_volume/
 .direnv/
+Ignore/

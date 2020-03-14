@@ -1,25 +1,22 @@
 version: '3.7'
 services:
   web:
-    image: python:3.8.1-slim
+    image: lunacircle4/tbs-web:develop
     container_name: tbs-web
-    working_dir: /root/tbs
     ports:
       - "8000:8000"
     volumes:
-      - ./:/root/tbs:cached
+      - ./web:/root/web:cached
     stdin_open: true
     tty: true
-    command:
-      - /bin/bash
   db:
-    image: mysql/mysql-server:8.0
+    image: mysql
     container_name: tbs-db
-    ports:
-        - "3307:3306"
     environment:
-        MYSQL_ROOT_PASSWORD: 'tbs_dev_1234' 
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_DATABASE=tbs_development
+      - MYSQL_ROOT_PASSWORD=tbs_development_1234
     volumes:
-        - tbs-datavolume:/var/lib/mysql
-volumes:
-    tbs-datavolume:
+      - ./db/tbs_db_volume:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+

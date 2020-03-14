@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from apps.tbs_core_db.models import Video
+from apps.db.video.models import Video
 
 class ListSerializer(serializers.HyperlinkedModelSerializer):
     url = serializers.HyperlinkedIdentityField(view_name="prototype:video-detail")

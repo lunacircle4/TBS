@@ -11,11 +11,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from apps.db import MODELS, DEFAULT_USER_MODEL
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-AUTH_USER_MODEL = 'tbs_core_db.user'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -28,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = DEFAULT_USER_MODEL
 
 # Application definition
 
@@ -39,11 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'apps.tbs_core_db',
-    'apps.prototype',
-    'apps.tbs_admin',
-    'sass_processor',
-]
+    'apps.v1',
+    'apps.tbs_admin'
+] + MODELS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -85,7 +83,7 @@ DATABASES = {
         'HOST': 'db',
         'NAME': 'tbs_development',
         'USER': 'root',
-        'PASSWORD': 'tbs_dev_1234',
+        'PASSWORD': 'tbs_development_1234',
         'PORT': '3306',
     }   
 }
@@ -110,11 +108,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'sass_processor.finders.CssFinder'
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder'
 ]
 
-SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static')
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 

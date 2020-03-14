@@ -19,7 +19,7 @@ from rest_framework.routers import DefaultRouter
 # routes
 from .views.videos import VideoViewset   
 
-app_name = 'prototype' 
+app_name = 'v1' 
 
 router = DefaultRouter(trailing_slash=False)
 router.register(r'videos', VideoViewset, basename='video')

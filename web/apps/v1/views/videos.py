@@ -1,8 +1,8 @@
-from apps.prototype.views.base import BaseViewSet
+from apps.v1.views.base import BaseViewSet
 from rest_framework.response import Response
 
-from apps.tbs_core_db.models.video import Video 
-from apps.prototype.serializers.videos import (
+from apps.db.video.models import Video 
+from apps.v1.serializers.videos import (
     ListSerializer,
     DetailSerializer
 )
