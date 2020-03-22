@@ -1,12 +1,13 @@
 version: '3.7'
 services:
-  web:
-    image: lunacircle4/tbs-web:develop
-    container_name: tbs-web
-    ports:
-      - "8000:8000"
+  api:
+    container_name: tbs-api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+      target: dev
     volumes:
-      - ./web:/root/web:cached
+      - ./api:/root/api:cached
     stdin_open: true
     tty: true
   db:
@@ -17,6 +18,5 @@ services:
       - MYSQL_DATABASE=tbs_development
       - MYSQL_ROOT_PASSWORD=tbs_development_1234
     volumes:
-      - ./db/tbs_db_volume:/var/lib/mysql
+      - ./db/volume:/var/lib/mysql
     command: --default-authentication-plugin=mysql_native_password
-
