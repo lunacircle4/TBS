@@ -8,6 +8,8 @@ services:
       target: dev
     volumes:
       - ./api:/root/api:cached
+    ports: 
+      - "8000:8000"
     stdin_open: true
     tty: true
   db:
