@@ -1,3 +1,4 @@
+import logging
 from apps.v1.views.base import BaseViewSet
 from rest_framework.response import Response
 
@@ -11,7 +12,7 @@ class VideoViewset(BaseViewSet):
     queryset = Video.objects.all()
     
     def get_serializer_class(self):
-        if self.action == 'list' or self.action == 'create':
+        if self.action == 'list':
             return ListSerializer
         else:
             return DetailSerializer
