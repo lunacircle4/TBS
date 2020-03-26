@@ -10,5 +10,5 @@ class ListSerializer(serializers.HyperlinkedModelSerializer):
 class DetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Video
-        fields = ['id', 'url']
+        fields = ['id', 'video']
     
