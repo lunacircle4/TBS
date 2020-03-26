@@ -2,7 +2,7 @@ from rest_framework import serializers
 from apps.db.video.models import Video
 
 class ListSerializer(serializers.HyperlinkedModelSerializer):
-    url = serializers.HyperlinkedIdentityField(view_name="prototype:video-detail")
+    url = serializers.HyperlinkedIdentityField(view_name="v1:video-detail")
     class Meta:
         model = Video
         fields = ['id', 'url']
@@ -10,5 +10,5 @@ class ListSerializer(serializers.HyperlinkedModelSerializer):
 class DetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Video
-        fields = ['id', 'video_url']
+        fields = ['id', 'url']
     
