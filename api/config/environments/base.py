@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-from apps.db import MODELS, DEFAULT_USER_MODEL
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -27,7 +26,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-AUTH_USER_MODEL = DEFAULT_USER_MODEL
+AUTH_USER_MODEL = 'tbs_auth.User'
 
 # Application definition
 INSTALLED_APPS = [
@@ -38,10 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    'rest_framework',
-    'apps.v1',
-    'apps.tbs_admin'
-] + MODELS
+    'rest_framework'
+]
+
+PROJECT_APPS = [
+    'apps.auth',
+    'apps.admin',
+    'apps.reaction',
+    'apps.streaming'
+]
+
+INSTALLED_APPS = INSTALLED_APPS + PROJECT_APPS
+
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
