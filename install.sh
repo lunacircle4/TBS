@@ -5,7 +5,7 @@
 
 # development image build
 echo "1. development image build"
-docker-compose -f dev.yml build
+docker-compose -f dev.yml build --pull
 
 # migrate
 echo "2. db migrate"
