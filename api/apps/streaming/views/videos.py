@@ -9,7 +9,7 @@ from ..serializers.videos import (
     DetailSerializer
 )
 
-class VideoViewset(BaseViewSet, CreateModelMixin):
+class VideoViewset(BaseViewSet):
     queryset = Video.objects.all()
     
     def get_serializer_class(self):
@@ -17,8 +17,3 @@ class VideoViewset(BaseViewSet, CreateModelMixin):
             return ListSerializer
         else:
             return DetailSerializer
-
-##
-# video를 올리면
-# 섬네일을 생성하고
-# 저장시 같이 저장한다.
